@@ -1,7 +1,7 @@
 Dependencies for Project 'stepMotor_arm', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
 F (.\USER\startup_stm32f10x_ld.s)(0x532BB23A)(--cpu Cortex-M3 -g --apcs=interwork -IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include--pd "__UVISION_VERSION SETA 534" --pd "STM32F10X_LD SETA 1"--list .\listings\startup_stm32f10x_ld.lst --xref -o .\objects\startup_stm32f10x_ld.o --depend .\objects\startup_stm32f10x_ld.d)
-F (.\stepMotor_ArmV5.c)(0x69188152)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\stepmotor_armv5.o --omf_browse .\objects\stepmotor_armv5.crf --depend .\objects\stepmotor_armv5.d)
+F (.\stepMotor_ArmV5.c)(0x69188326)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\stepmotor_armv5.o --omf_browse .\objects\stepmotor_armv5.crf --depend .\objects\stepmotor_armv5.d)
 I (.\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
 I (.\SYSTEM\sys\core_cm3.h)(0x4D523B58)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
@@ -19,7 +19,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E8E3CC2)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5E8E3CC2)
 I (.\HARDWARE\SPI\spi.h)(0x68E0F67C)
 I (.\HARDWARE\OLED\oled.h)(0x68E0FF19)
-I (.\HARDWARE\CAN\can.h)(0x69188137)
+I (.\HARDWARE\CAN\can.h)(0x69188321)
 F (.\SYSTEM\delay\delay.c)(0x61B01009)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\delay.o --omf_browse .\objects\delay.crf --depend .\objects\delay.d)
 I (.\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
 I (.\SYSTEM\sys\core_cm3.h)(0x4D523B58)
@@ -112,7 +112,7 @@ I (.\HARDWARE\PORT\port.h)(0x691738C9)
 I (.\SYSTEM\sys\sys.h)(0x56F28C60)
 I (.\HARDWARE\SPI\spi.h)(0x68E0F67C)
 F (.\HARDWARE\CAN\can.c)(0x69180046)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\can.o --omf_browse .\objects\can.crf --depend .\objects\can.d)
-I (HARDWARE\CAN\can.h)(0x69188137)
+I (HARDWARE\CAN\can.h)(0x69188321)
 I (.\SYSTEM\sys\sys.h)(0x56F28C60)
 I (.\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
 I (.\SYSTEM\sys\core_cm3.h)(0x4D523B58)

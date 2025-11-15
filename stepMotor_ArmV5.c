@@ -143,13 +143,13 @@ int main(void)
 				LMain = !LMain;
 				res = 0;
 				//USART2->DR = 0x32;
-				res=CAN_Send_Msg(canbuf,8);				//发送8个字节 
-				if(res)OLED_ShowString(0,0,"Failed");	//提示发送失败
-				else OLED_ShowString(0,16,"OK");	//提示发送成功				
+				//res=CAN_Send_Msg(canbuf,8);				//发送8个字节 
+				//if(res)OLED_ShowString(0,0,"Failed");	//提示发送失败
+				//else OLED_ShowString(0,16,"OK");	//提示发送成功				
 			}
 		}
 		
-		key=CAN_Receive_Msg(canRXbuf);
+		//key=CAN_Receive_Msg(canRXbuf);
 		if(key)//接收到有数据
 		{			
 			OLED_Clear();
