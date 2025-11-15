@@ -1,0 +1,18 @@
+--cpu Cortex-M3
+".\objects\startup_stm32f10x_ld.o"
+".\objects\stepmotor_armv5.o"
+".\objects\delay.o"
+".\objects\sys.o"
+".\objects\usart.o"
+".\objects\port.o"
+".\objects\spi.o"
+".\objects\stmflash.o"
+".\objects\systick.o"
+".\objects\timer.o"
+".\objects\exti.o"
+".\objects\oled.o"
+".\objects\can.o"
+--strict --scatter ".\Objects\stepMotor_arm.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\stepMotor_arm.map" -o .\Objects\stepMotor_arm.axf

@@ -8,17 +8,17 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 
-//CAN½ÓÊÕRX0ÖĞ¶ÏÊ¹ÄÜ
-#define CAN_RX0_INT_ENABLE	1		//0,²»Ê¹ÄÜ;1,Ê¹ÄÜ.				
+//CANæ¥æ”¶RX0ä¸­æ–­ä½¿èƒ½
+#define CAN_RX0_INT_ENABLE	0		//0ï¼Œä¸ä½¿èƒ½ï¼›1ï¼Œä½¿èƒ½		
 
 										 							 				    
-u8 CAN_Mode_Init(void);//CAN³õÊ¼»¯
-u8 CAN_Tx_Msg(u32 id,u8 ide,u8 rtr,u8 len,u8 *dat);		//·¢ËÍÊı¾İ
-u8 CAN_Msg_Pend(u8 fifox);								//²éÑ¯ÓÊÏä±¨ÎÄ
-void CAN_Rx_Msg(u8 fifox,u32 *id,u8 *ide,u8 *rtr,u8 *len,u8 *dat);//½ÓÊÕÊı¾İ
-u8 CAN_Tx_Staus(u8 mbox);  								//·µ»Ø·¢ËÍ×´Ì¬
-u8 CAN_Send_Msg(u8* msg,u8 len);						//·¢ËÍÊı¾İ
-u8 CAN_Receive_Msg(u8 *buf);							//½ÓÊÕÊı¾İ
+u8 CAN_Mode_Init(void);         //CANåˆå§‹åŒ–
+u8 CAN_Tx_Msg(u32 id,u8 ide,u8 rtr,u8 len,u8 *dat);		//å‘é€æ•°æ®
+u8 CAN_Msg_Pend(u8 fifox);								//æŸ¥è¯¢é‚®ç®±æŠ¥æ–‡
+void CAN_Rx_Msg(u8 fifox,u32 *id,u8 *ide,u8 *rtr,u8 *len,u8 *dat);//æ¥æ”¶æ•°æ®
+u8 CAN_Tx_Staus(u8 mbox);  								//è¿”å›å‘é€çŠ¶æ€
+u8 CAN_Send_Msg(u8* msg,u8 len);						//å‘é€æ•°æ®
+u8 CAN_Receive_Msg(u8 *buf);							//æ¥æ”¶æ•°æ®
 #endif
 
 

@@ -1,0 +1,12 @@
+.\objects\systick.o: HARDWARE\SYSTICK\systick.c
+.\objects\systick.o: .\SYSTEM\sys\stm32f10x.h
+.\objects\systick.o: .\SYSTEM\sys\core_cm3.h
+.\objects\systick.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\systick.o: .\SYSTEM\sys\system_stm32f10x.h
+.\objects\systick.o: .\SYSTEM\sys\sys.h
+.\objects\systick.o: .\HARDWARE\TIMER\timer.h
+.\objects\systick.o: .\HARDWARE\PORT\port.h
+.\objects\systick.o: .\SYSTEM\usart\usart.h
+.\objects\systick.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\systick.o: .\HARDWARE\STMFLASH\stmflash.h
+.\objects\systick.o: .\HARDWARE\SPI\spi.h

@@ -1,0 +1,10 @@
+.\objects\stmflash.o: HARDWARE\STMFLASH\stmflash.c
+.\objects\stmflash.o: HARDWARE\STMFLASH\stmflash.h
+.\objects\stmflash.o: .\SYSTEM\sys\sys.h
+.\objects\stmflash.o: .\SYSTEM\sys\stm32f10x.h
+.\objects\stmflash.o: .\SYSTEM\sys\core_cm3.h
+.\objects\stmflash.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\stmflash.o: .\SYSTEM\sys\system_stm32f10x.h
+.\objects\stmflash.o: .\SYSTEM\delay\delay.h
+.\objects\stmflash.o: .\SYSTEM\usart\usart.h
+.\objects\stmflash.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

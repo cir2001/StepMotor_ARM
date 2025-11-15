@@ -1,11 +1,8 @@
 {
 	"folders": [
 		{
+			"name": "stepMotor_ARM",
 			"path": "."
-		},
-		{
-			"name": "git_test",
-			"path": "../../../../Github Clone/git_test"
 		}
 	],
 	"settings": {}

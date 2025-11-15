@@ -1,0 +1,12 @@
+.\objects\can.o: HARDWARE\CAN\can.c
+.\objects\can.o: HARDWARE\CAN\can.h
+.\objects\can.o: .\SYSTEM\sys\sys.h
+.\objects\can.o: .\SYSTEM\sys\stm32f10x.h
+.\objects\can.o: .\SYSTEM\sys\core_cm3.h
+.\objects\can.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\can.o: .\SYSTEM\sys\system_stm32f10x.h
+.\objects\can.o: .\HARDWARE\LED\led.h
+.\objects\can.o: .\SYSTEM\delay\delay.h
+.\objects\can.o: .\SYSTEM\usart\usart.h
+.\objects\can.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\can.o: .\HARDWARE\OLED\oled.h
