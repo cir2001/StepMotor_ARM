@@ -63,6 +63,8 @@
 //设置FLASH 保存地址(必须为偶数，且其值要大于本代码所占用FLASH的大小+0X08000000)
 #define FLASH_SAVE_ADDR  0X08010000 
 #define BufferSize 16
+//--------------------------
+char hex2char(u8 value);
 //---------------------
 u16 FlashRead[32];
 extern u8 USART2_RX_BUF[128];     	//接收缓冲,最大128个字节.
@@ -73,15 +75,23 @@ extern u8 TxD1pt,TxD2pt,TxD1Num,TxD2Num;
 
 extern u8 EXIT0_flag;
 extern u8 key_press;
+
+extern u8 CAN_RX_Flag;
+extern u8 CAN_RX_BUF[8];
+
+extern u16 CAN_RX_ID;
 //=====================================================
 short Gyro[3],Acc[3];
 
 u16 res,u8Led0_Counter;
 
+u8 temp_1,temp_2,temp_3;
 u8 i;
 u8 canbuf[8]={0x05,0x01,0x05,0x01,0x05,0x05,0x06,0x07};
 u8 key;
 u8 canRXbuf[8];
+u8 u8can,u8can1,u8can2;
+unsigned char h2c_id[3],h2c[8][2];
 //==========================================================
 int main(void)
 {
@@ -149,7 +159,7 @@ int main(void)
 			}
 		}
 		
-		key=CAN_Receive_Msg(canRXbuf);
+		//key=CAN_Receive_Msg(canRXbuf);
 		if(key)//接收到有数据
 		{			
 			OLED_Clear();
@@ -159,6 +169,68 @@ int main(void)
 				OLED_ShowNum(i*8,40,canRXbuf[i],1,16);	//显示数据
  			}
 		}
+		if(CAN_RX_Flag == 1)
+		{
+			CAN_RX_Flag = 0;
+			temp_1 = (CAN_RX_ID >> 8) & 0x0F;   
+			temp_2 = (CAN_RX_ID >> 4) & 0x0F; 
+			temp_3 = CAN_RX_ID & 0x0F; 
+
+			h2c_id[0] = hex2char(temp_1);  
+			h2c_id[1] = hex2char(temp_2);  
+			h2c_id[2] = hex2char(temp_3); 
+			//--- 第一行显示 ---
+			OLED_ShowString(0,0,"rec_id:");
+			for(u8can=0;u8can<3;u8can++)
+			{	
+				OLED_ShowChar(u8can*12+60,0,h2c_id[u8can],16,1);	//显示ID
+			}
+			//--- 第二行显示 ---
+			OLED_ShowString(0,16,"REC:");		
+			//接收数据转换
+			for(u8can=0;u8can<8;u8can++)
+			{
+				temp_1 = (CAN_RX_BUF[u8can] >> 4) & 0x0F;   
+				temp_2 = CAN_RX_BUF[u8can] & 0x0F; 
+
+				h2c[u8can][0] = hex2char(temp_1);  
+				h2c[u8can][1] = hex2char(temp_2);  
+			}
+			//--- 第三行显示 ---
+			for(u8can1=0;u8can1<4;u8can1++)
+			{
+				for(u8can2=0;u8can2<2;u8can2++)
+				{
+					OLED_ShowChar(u8can1*30+u8can2*12,32,h2c[u8can1][u8can2],16,1);	//显示前四个字节
+				}
+			}
+			//--- 第四行显示 ---
+			for(u8can1=4;u8can1<8;u8can1++)
+			{
+				for(u8can2=0;u8can2<2;u8can2++)
+				{
+				
+					OLED_ShowChar((u8can1-4)*30+u8can2*12,48,h2c[u8can1][u8can2],16,1);	//显示后四个字节					
+				}			
+			}
+		}
 	}   // while(1) end
 }		// int main(void) end
+//*************************************************
+//
+//
+//
+//*************************************************
+char hex2char(u8 value)
+{
+    if (value < 10)
+        return '0' + value;
+    else
+        return 'A' + (value - 10);
+}
+//*************************************************
+//
+//
+//
+//*************************************************
 
