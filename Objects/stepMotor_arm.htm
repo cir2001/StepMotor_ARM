@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\stepMotor_arm.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\stepMotor_arm.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Nov 19 18:05:23 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Thu Nov 27 15:20:14 2025
 <BR><P>
 <H3>Maximum Stack Usage =        168 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -415,8 +415,8 @@ Global Symbols
 
 <P><STRONG><a name="[9c]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, indicate_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[47]"></a>CAN_Mode_Init</STRONG> (Thumb, 408 bytes, Stack size 32 bytes, can.o(i.CAN_Mode_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = CAN_Mode_Init &rArr; MY_NVIC_Init
+<P><STRONG><a name="[47]"></a>CAN_Mode_Init</STRONG> (Thumb, 376 bytes, Stack size 16 bytes, can.o(i.CAN_Mode_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = CAN_Mode_Init &rArr; MY_NVIC_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MY_NVIC_Init
 </UL>
@@ -636,7 +636,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[3e]"></a>main</STRONG> (Thumb, 772 bytes, Stack size 8 bytes, stepmotor_armv5.o(i.main))
+<P><STRONG><a name="[3e]"></a>main</STRONG> (Thumb, 782 bytes, Stack size 8 bytes, stepmotor_armv5.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = main &rArr; OLED_ShowNum &rArr; OLED_ShowChar &rArr; OLED_DrawPoint &rArr; LCD_Set_Pos &rArr; OLED_WR_Byte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init2
@@ -666,12 +666,12 @@ Global Symbols
 <P><STRONG><a name="[5f]"></a>uart_init2</STRONG> (Thumb, 212 bytes, Stack size 40 bytes, usart.o(i.uart_init2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = uart_init2 &rArr; MY_NVIC_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MY_NVIC_Init
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_frsub
+<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MY_NVIC_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>

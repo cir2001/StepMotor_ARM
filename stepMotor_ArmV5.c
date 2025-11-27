@@ -125,7 +125,7 @@ int main(void)
 	//OLED_ShowNum(0, 0, 12345678, 8, 16);
 	//OLED_ShowString(1,16,"OLED TEST");
 	//OLED_Clear();
-	//OLED_ShowString(0,0," LX: ");
+	OLED_ShowString(0,0," LX: ");
 	//OLED_ShowString(0,16," LY: ");
 	//OLED_ShowString(0,32," RX: ");
 	//OLED_ShowString(0,48," RY: ");
