@@ -57,8 +57,6 @@ void EXTI0_IRQHandler(void)
 		u16Exti0Count = 0;
 
 	}
-	
-	
 }
 //===============================
 
@@ -73,13 +71,7 @@ void EXTI1_IRQHandler(void)
 	{
 		u16Exti0Count = 0;
 
-	}
-	//if((INT == 0))
-	//{
-		
-	//}
-	
-	
+	}	
 }
 
 

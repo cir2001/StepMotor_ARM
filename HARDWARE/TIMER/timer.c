@@ -27,8 +27,7 @@ void TIM2_IRQHandler(void)
 		if(t2>=2000)
 		{
 			t2 = 0;
-			//LCan = !LCan;
-			LMotor = !LMotor;			
+			LMain = !LMain;		
 		}
 		if(t1>=15)
 		{
@@ -74,8 +73,6 @@ void TIM4_IRQHandler(void)
 	}
 	TIM4->SR&=~(1<<0);//清除中断标志位 	    
 }
-
-
 //=======Timer2 Init ============
 //通用定时器初始化
 //这里时钟选择为APB1的2倍，而APB1为36M

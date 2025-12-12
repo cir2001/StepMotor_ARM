@@ -17,3 +17,5 @@
 .\objects\stepmotor_armv5.o: .\HARDWARE\SPI\spi.h
 .\objects\stepmotor_armv5.o: .\HARDWARE\OLED\oled.h
 .\objects\stepmotor_armv5.o: .\HARDWARE\CAN\can.h
+.\objects\stepmotor_armv5.o: .\HARDWARE\AS5600\AS5600.h
+.\objects\stepmotor_armv5.o: .\HARDWARE\AS5600\myiic.h

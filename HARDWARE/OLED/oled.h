@@ -1,16 +1,13 @@
 //////////////////////////////////////////////////////////////////////////////////	 
-//本程序只供学习使用，未经作者许可，不得用于其它任何用途
-
+//
+//
+//
 //********************************************************************************
-
-
 #ifndef __OLED_H
 #define __OLED_H			  	 
 //#include "sys.h"
 //#include "stdlib.h"	 
-
 #include "stm32f10x.h"
-
 
 //OLED模式设置
 //0:4线串行模式
@@ -18,16 +15,11 @@
 #define OLED_MODE 0
 		    						  
 //-----------------OLED端口定义----------------  					   
-
 //#define OLED_CS_Clr()  GPIO_ResetBits(GPIOB,GPIO_Pin_12)//CS
 //#define OLED_CS_Set()  GPIO_SetBits(GPIOB,GPIO_Pin_12)
 
-
 //#define OLED_RS_Clr() GPIO_ResetBits(GPIOC,GPIO_Pin_6)//A0
 //#define OLED_RS_Set() GPIO_SetBits(GPIOC,GPIO_Pin_6)
-
-
-
 
 ////PC0~7,作为数据线
 

@@ -12,18 +12,13 @@ u8 u8Led1_Count;
 //这里针是对SPI1的初始化
 void SPI1_Init(void)
 {	 
-	RCC->APB2ENR|=1<<2;  	//PORTA时钟使能 	 
-	RCC->APB2ENR|=1<<12;  //SPI1时钟使能 
+	RCC->APB2ENR|=1<<2;  		//PORTA时钟使能 	 
+	RCC->APB2ENR|=1<<12;  		//SPI1时钟使能 
 	
 	
 	GPIOA->CRL&=0X0000FFFF;
-	GPIOA->CRL|=0XBBB30000;//PA5/PA6/PA7复用 	 PA5-SPI1_SCL PA6-SPI1_MISO PA7-SPI1_MOSI   
-	GPIOA->ODR|=7<<5;   	 //PA5/PA6/PA7上拉
-	
-	//这里只针对SPI口初始化
-	//RCC->APB2RSTR|=1<<12;	//复位SPI2
-	//RCC->APB2RSTR&=~(1<<12);//停止复位S
-	
+	GPIOA->CRL|=0XB3B30000;		//PA5/PA6/PA7复用 	 PA5:SPI1_SCL PA6:OLED_RES推挽模式(SPI1_MISO) PA7:SPI1_MOSI   
+	GPIOA->ODR|=7<<5;   	 	//PA5/PA6/PA7上拉
 	
 	//对SPI1属于APB1的外设.时钟频率最大为36M.
 	SPI1->CR1|=3<<3; 		//Fsck=Fpclk1/256

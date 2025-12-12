@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_LD</Define>
               <Undefine></Undefine>
-              <IncludePath>.\SYSTEM\delay;.\SYSTEM\sys;.\SYSTEM\usart;.\HARDWARE\ADC;.\HARDWARE\PORT;.\HARDWARE\SPI;.\HARDWARE\SYSTICK;.\HARDWARE\TIMER;.\HARDWARE\LED;.\HARDWARE\STMFLASH;.\USER;.\HARDWARE\EXTI;.\HARDWARE\OLED;.\HARDWARE\CAN</IncludePath>
+              <IncludePath>.\SYSTEM\delay;.\SYSTEM\sys;.\SYSTEM\usart;.\HARDWARE\ADC;.\HARDWARE\PORT;.\HARDWARE\SPI;.\HARDWARE\SYSTICK;.\HARDWARE\TIMER;.\HARDWARE\LED;.\HARDWARE\STMFLASH;.\USER;.\HARDWARE\EXTI;.\HARDWARE\OLED;.\HARDWARE\CAN;.\HARDWARE\AS5600</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -462,6 +462,16 @@
               <FileName>can.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\HARDWARE\CAN\can.c</FilePath>
+            </File>
+            <File>
+              <FileName>AS5600.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HARDWARE\AS5600\AS5600.c</FilePath>
+            </File>
+            <File>
+              <FileName>myiic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HARDWARE\AS5600\myiic.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -7,7 +7,6 @@
 #include "port.h"
 #include "spi.h"
 
-
 //OLED的显存
 //存放格式如下.
 //[0]0 1 2 3 ... 127	
@@ -23,16 +22,24 @@ unsigned char  OLED_GRAM[128][8];
 //更新显存到LCD		 
 void OLED_Refresh_Gram(void)
 {
-	unsigned char  i,n;		    
+	u8 i,n;		    
 	for(i=0;i<8;i++)  
 	{  
 		OLED_WR_Byte (0xb0+i,OLED_CMD);    //设置页地址（0~7）
-		OLED_WR_Byte (0x02,OLED_CMD);      //设置显示位置—列低地址
+		OLED_WR_Byte (0x00,OLED_CMD);      //设置显示位置—列低地址
 		OLED_WR_Byte (0x10,OLED_CMD);      //设置显示位置—列高地址   
-		for(n=0;n<128;n++)OLED_WR_Byte(OLED_GRAM[n][i],OLED_DATA); 
+		
+		OLED_RS_Set(); // 切换到数据模式 (DC = 1)
+        OLED_CS_Clr(); // 拉低片选 (开始传输)
+        
+        for(n=0;n<128;n++)
+        {
+            SPI1_ReadWriteByte(OLED_GRAM[n][i]); // 直接调用SPI发送，不通过OLED_WR_Byte
+        }
+        
+        OLED_CS_Set(); // 拉高片选 (结束本页传输)
 	}   
 }
-
 //向SSD1306写入一个字节。
 //dat:要写入的数据/命令
 //cmd:数据/命令标志 0,表示命令;1,表示数据;
@@ -103,8 +110,6 @@ void OLED_DrawPoint(unsigned char  x,unsigned char  y,unsigned char  t)
 	  OLED_WR_Byte(OLED_GRAM[x][pos],OLED_DATA); 
 	
   //	OLED_WR_Byte(OLED_GRAM[x][pos],OLED_DATA); 
-	  
-
 }
 //x1,y1,x2,y2 填充区域的对角坐标
 //确保x1<=x2;y1<=y2 0<=x1<=127 0<=y1<=63	 	 

@@ -63,9 +63,9 @@ void PORT_Init(void)
 	GPIOB->CRH&=0XFFFFFF0F;			
 	GPIOB->CRH|=0X00000030; 		//PB9		推挽输出 				PWM6				D-Out				Pin46
 	GPIOB->CRH&=0XFFFFF0FF;
-	GPIOB->CRH|=0X00000800; 		//PB10		推挽输出 									D-Out				Pin21
+	GPIOB->CRH|=0X00000300; 		//PB10		推挽输出 									D-Out				Pin21
 	GPIOB->CRH&=0XFFFF0FFF;
-	GPIOB->CRH|=0X00008000; 		//PB11		推挽输出									D-Out				Pin22
+	GPIOB->CRH|=0X00003000; 		//PB11		推挽输出									D-Out				Pin22
 	GPIOB->CRH&=0XFFF0FFFF;
 	GPIOB->CRH|=0X00030000; 		//PB12		推挽输出									D-Out				Pin25
 	GPIOB->CRH&=0XFF0FFFFF;
@@ -115,14 +115,6 @@ void PORT_Init(void)
  	GPIOC->ODR =0xFFFFFFFF; 		//PC 		全部上拉
 											  
 //	JTAG_Set(JTAG_SWD_DISABLE);//关闭JTAG和SWD   
-//----PortD----
-									//PD0    8MHz							OSC_IN							  Pin5
-									//PD1    8MHz							OSC_OUT							  Pin6
-	GPIOD->CRL&=0XFFFFF0FF;
-	GPIOD->CRL|=0X00000300; 		//PD2		上拉下拉输入模式							D-In  	   			Pin54   
-
-  	GPIOD->ODR =0xFFFFFFFF; 		//PC 		全部上拉	
-
 }
 
 

@@ -12,6 +12,8 @@
 ".\objects\exti.o"
 ".\objects\oled.o"
 ".\objects\can.o"
+".\objects\as5600.o"
+".\objects\myiic.o"
 --strict --scatter ".\Objects\stepMotor_arm.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

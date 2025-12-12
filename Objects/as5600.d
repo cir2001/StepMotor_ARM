@@ -1,0 +1,9 @@
+.\objects\as5600.o: HARDWARE\AS5600\AS5600.c
+.\objects\as5600.o: .\SYSTEM\delay\delay.h
+.\objects\as5600.o: .\SYSTEM\sys\sys.h
+.\objects\as5600.o: .\SYSTEM\sys\stm32f10x.h
+.\objects\as5600.o: .\SYSTEM\sys\core_cm3.h
+.\objects\as5600.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\as5600.o: .\SYSTEM\sys\system_stm32f10x.h
+.\objects\as5600.o: HARDWARE\AS5600\AS5600.h
+.\objects\as5600.o: HARDWARE\AS5600\myiic.h
