@@ -1,7 +1,7 @@
 Dependencies for Project 'stepMotor_arm', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
 F (.\USER\startup_stm32f10x_ld.s)(0x532BB23A)(--cpu Cortex-M3 -g --apcs=interwork -IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include--pd "__UVISION_VERSION SETA 534" --pd "STM32F10X_LD SETA 1"--list .\listings\startup_stm32f10x_ld.lst --xref -o .\objects\startup_stm32f10x_ld.o --depend .\objects\startup_stm32f10x_ld.d)
-F (.\stepMotor_ArmV5.c)(0x693B5747)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\stepmotor_armv5.o --omf_browse .\objects\stepmotor_armv5.crf --depend .\objects\stepmotor_armv5.d)
+F (.\stepMotor_ArmV5.c)(0x693BD889)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\stepmotor_armv5.o --omf_browse .\objects\stepmotor_armv5.crf --depend .\objects\stepmotor_armv5.d)
 I (.\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
 I (.\SYSTEM\sys\core_cm3.h)(0x4D523B58)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
@@ -9,19 +9,19 @@ I (.\SYSTEM\sys\system_stm32f10x.h)(0x4F1E2E3C)
 I (.\SYSTEM\usart\usart.h)(0x6917CE4F)
 I (.\SYSTEM\sys\sys.h)(0x56F28C60)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
-I (.\HARDWARE\PORT\port.h)(0x693B52D5)
+I (.\HARDWARE\PORT\port.h)(0x693BD889)
 I (.\HARDWARE\TIMER\timer.h)(0x61B9E45A)
 I (.\HARDWARE\STMFLASH\stmflash.h)(0x56F3EB62)
 I (.\SYSTEM\delay\delay.h)(0x61B00FEF)
-I (.\HARDWARE\EXTI\exti.h)(0x693B4C73)
+I (.\HARDWARE\EXTI\exti.h)(0x693BD889)
 I (.\HARDWARE\SYSTICK\SysTick.h)(0x61CC767F)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E8E3CC2)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5E8E3CC2)
-I (.\HARDWARE\SPI\spi.h)(0x693B4C73)
-I (.\HARDWARE\OLED\oled.h)(0x693B4C73)
+I (.\HARDWARE\SPI\spi.h)(0x693BD889)
+I (.\HARDWARE\OLED\oled.h)(0x693BD889)
 I (.\HARDWARE\CAN\can.h)(0x6919E45C)
-I (.\HARDWARE\AS5600\AS5600.h)(0x69325735)
-I (.\HARDWARE\AS5600\myiic.h)(0x693255CB)
+I (.\HARDWARE\AS5600\AS5600.h)(0x693BD889)
+I (.\HARDWARE\AS5600\myiic.h)(0x693BD889)
 F (.\SYSTEM\delay\delay.c)(0x61B01009)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\delay.o --omf_browse .\objects\delay.crf --depend .\objects\delay.d)
 I (.\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
 I (.\SYSTEM\sys\core_cm3.h)(0x4D523B58)
@@ -35,7 +35,7 @@ I (.\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
 I (.\SYSTEM\sys\core_cm3.h)(0x4D523B58)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
 I (.\SYSTEM\sys\system_stm32f10x.h)(0x4F1E2E3C)
-F (.\SYSTEM\usart\usart.c)(0x693B4B46)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\usart.o --omf_browse .\objects\usart.crf --depend .\objects\usart.d)
+F (.\SYSTEM\usart\usart.c)(0x693BD889)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\usart.o --omf_browse .\objects\usart.crf --depend .\objects\usart.d)
 I (SYSTEM\usart\usart.h)(0x6917CE4F)
 I (.\SYSTEM\sys\sys.h)(0x56F28C60)
 I (.\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
@@ -43,24 +43,24 @@ I (.\SYSTEM\sys\core_cm3.h)(0x4D523B58)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
 I (.\SYSTEM\sys\system_stm32f10x.h)(0x4F1E2E3C)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
-I (.\HARDWARE\PORT\port.h)(0x693B52D5)
+I (.\HARDWARE\PORT\port.h)(0x693BD889)
 I (.\HARDWARE\STMFLASH\stmflash.h)(0x56F3EB62)
 I (.\HARDWARE\TIMER\timer.h)(0x61B9E45A)
-F (.\HARDWARE\PORT\port.c)(0x693B52D5)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\port.o --omf_browse .\objects\port.crf --depend .\objects\port.d)
+F (.\HARDWARE\PORT\port.c)(0x693BD889)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\port.o --omf_browse .\objects\port.crf --depend .\objects\port.d)
 I (.\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
 I (.\SYSTEM\sys\core_cm3.h)(0x4D523B58)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
 I (.\SYSTEM\sys\system_stm32f10x.h)(0x4F1E2E3C)
-I (HARDWARE\PORT\port.h)(0x693B52D5)
+I (HARDWARE\PORT\port.h)(0x693BD889)
 I (.\SYSTEM\sys\sys.h)(0x56F28C60)
-F (.\HARDWARE\SPI\spi.c)(0x693B561E)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\spi.o --omf_browse .\objects\spi.crf --depend .\objects\spi.d)
-I (HARDWARE\SPI\spi.h)(0x693B4C73)
+F (.\HARDWARE\SPI\spi.c)(0x693BD889)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\spi.o --omf_browse .\objects\spi.crf --depend .\objects\spi.d)
+I (HARDWARE\SPI\spi.h)(0x693BD889)
 I (.\SYSTEM\sys\sys.h)(0x56F28C60)
 I (.\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
 I (.\SYSTEM\sys\core_cm3.h)(0x4D523B58)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
 I (.\SYSTEM\sys\system_stm32f10x.h)(0x4F1E2E3C)
-I (.\HARDWARE\PORT\port.h)(0x693B52D5)
+I (.\HARDWARE\PORT\port.h)(0x693BD889)
 F (.\HARDWARE\STMFLASH\stmflash.c)(0x56F3E73C)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\stmflash.o --omf_browse .\objects\stmflash.crf --depend .\objects\stmflash.d)
 I (HARDWARE\STMFLASH\stmflash.h)(0x56F3EB62)
 I (.\SYSTEM\sys\sys.h)(0x56F28C60)
@@ -78,42 +78,42 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
 I (.\SYSTEM\sys\system_stm32f10x.h)(0x4F1E2E3C)
 I (.\SYSTEM\sys\sys.h)(0x56F28C60)
 I (.\HARDWARE\TIMER\timer.h)(0x61B9E45A)
-I (.\HARDWARE\PORT\port.h)(0x693B52D5)
+I (.\HARDWARE\PORT\port.h)(0x693BD889)
 I (.\SYSTEM\usart\usart.h)(0x6917CE4F)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
 I (.\HARDWARE\STMFLASH\stmflash.h)(0x56F3EB62)
-I (.\HARDWARE\SPI\spi.h)(0x693B4C73)
-F (.\HARDWARE\TIMER\timer.c)(0x693B52D5)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\timer.o --omf_browse .\objects\timer.crf --depend .\objects\timer.d)
+I (.\HARDWARE\SPI\spi.h)(0x693BD889)
+F (.\HARDWARE\TIMER\timer.c)(0x693BD889)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\timer.o --omf_browse .\objects\timer.crf --depend .\objects\timer.d)
 I (HARDWARE\TIMER\timer.h)(0x61B9E45A)
 I (.\SYSTEM\sys\sys.h)(0x56F28C60)
 I (.\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
 I (.\SYSTEM\sys\core_cm3.h)(0x4D523B58)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
 I (.\SYSTEM\sys\system_stm32f10x.h)(0x4F1E2E3C)
-I (.\HARDWARE\PORT\port.h)(0x693B52D5)
+I (.\HARDWARE\PORT\port.h)(0x693BD889)
 I (.\SYSTEM\usart\usart.h)(0x6917CE4F)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
 I (.\SYSTEM\delay\delay.h)(0x61B00FEF)
-F (.\HARDWARE\EXTI\exti.c)(0x693B4C73)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\exti.o --omf_browse .\objects\exti.crf --depend .\objects\exti.d)
-I (HARDWARE\EXTI\exti.h)(0x693B4C73)
+F (.\HARDWARE\EXTI\exti.c)(0x693BD889)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\exti.o --omf_browse .\objects\exti.crf --depend .\objects\exti.d)
+I (HARDWARE\EXTI\exti.h)(0x693BD889)
 I (.\SYSTEM\sys\sys.h)(0x56F28C60)
 I (.\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
 I (.\SYSTEM\sys\core_cm3.h)(0x4D523B58)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
 I (.\SYSTEM\sys\system_stm32f10x.h)(0x4F1E2E3C)
 I (.\SYSTEM\delay\delay.h)(0x61B00FEF)
-I (.\HARDWARE\PORT\port.h)(0x693B52D5)
-F (.\HARDWARE\OLED\oled.c)(0x693046C4)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\oled.o --omf_browse .\objects\oled.crf --depend .\objects\oled.d)
-I (HARDWARE\OLED\oled.h)(0x693B4C73)
+I (.\HARDWARE\PORT\port.h)(0x693BD889)
+F (.\HARDWARE\OLED\oled.c)(0x693BD889)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\oled.o --omf_browse .\objects\oled.crf --depend .\objects\oled.d)
+I (HARDWARE\OLED\oled.h)(0x693BD889)
 I (.\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
 I (.\SYSTEM\sys\core_cm3.h)(0x4D523B58)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
 I (.\SYSTEM\sys\system_stm32f10x.h)(0x4F1E2E3C)
 I (HARDWARE\OLED\oledfont.h)(0x68E0FF1A)
-I (.\HARDWARE\PORT\port.h)(0x693B52D5)
+I (.\HARDWARE\PORT\port.h)(0x693BD889)
 I (.\SYSTEM\sys\sys.h)(0x56F28C60)
-I (.\HARDWARE\SPI\spi.h)(0x693B4C73)
-F (.\HARDWARE\CAN\can.c)(0x6927DD01)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\can.o --omf_browse .\objects\can.crf --depend .\objects\can.d)
+I (.\HARDWARE\SPI\spi.h)(0x693BD889)
+F (.\HARDWARE\CAN\can.c)(0x693BD889)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\can.o --omf_browse .\objects\can.crf --depend .\objects\can.d)
 I (HARDWARE\CAN\can.h)(0x6919E45C)
 I (.\SYSTEM\sys\sys.h)(0x56F28C60)
 I (.\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
@@ -124,18 +124,18 @@ I (.\HARDWARE\LED\led.h)(0x5ADF47A6)
 I (.\SYSTEM\delay\delay.h)(0x61B00FEF)
 I (.\SYSTEM\usart\usart.h)(0x6917CE4F)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
-I (.\HARDWARE\OLED\oled.h)(0x693B4C73)
-F (.\HARDWARE\AS5600\AS5600.c)(0x69325734)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\as5600.o --omf_browse .\objects\as5600.crf --depend .\objects\as5600.d)
+I (.\HARDWARE\OLED\oled.h)(0x693BD889)
+F (.\HARDWARE\AS5600\AS5600.c)(0x693BD889)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\as5600.o --omf_browse .\objects\as5600.crf --depend .\objects\as5600.d)
 I (.\SYSTEM\delay\delay.h)(0x61B00FEF)
 I (.\SYSTEM\sys\sys.h)(0x56F28C60)
 I (.\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
 I (.\SYSTEM\sys\core_cm3.h)(0x4D523B58)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
 I (.\SYSTEM\sys\system_stm32f10x.h)(0x4F1E2E3C)
-I (HARDWARE\AS5600\AS5600.h)(0x69325735)
-I (HARDWARE\AS5600\myiic.h)(0x693255CB)
-F (.\HARDWARE\AS5600\myiic.c)(0x693258B6)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\myiic.o --omf_browse .\objects\myiic.crf --depend .\objects\myiic.d)
-I (HARDWARE\AS5600\myiic.h)(0x693255CB)
+I (HARDWARE\AS5600\AS5600.h)(0x693BD889)
+I (HARDWARE\AS5600\myiic.h)(0x693BD889)
+F (.\HARDWARE\AS5600\myiic.c)(0x693BD889)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\SYSTEM\delay -I .\SYSTEM\sys -I .\SYSTEM\usart -I .\HARDWARE\ADC -I .\HARDWARE\PORT -I .\HARDWARE\SPI -I .\HARDWARE\SYSTICK -I .\HARDWARE\TIMER -I .\HARDWARE\LED -I .\HARDWARE\STMFLASH -I .\USER -I .\HARDWARE\EXTI -I .\HARDWARE\OLED -I .\HARDWARE\CAN -I .\HARDWARE\AS5600-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="534" -DSTM32F10X_LD -DSTM32F10X_LD-o .\objects\myiic.o --omf_browse .\objects\myiic.crf --depend .\objects\myiic.d)
+I (HARDWARE\AS5600\myiic.h)(0x693BD889)
 I (.\SYSTEM\sys\sys.h)(0x56F28C60)
 I (.\SYSTEM\sys\stm32f10x.h)(0x4F1E2E3C)
 I (.\SYSTEM\sys\core_cm3.h)(0x4D523B58)
