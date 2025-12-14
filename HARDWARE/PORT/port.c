@@ -71,7 +71,7 @@ void PORT_Init(void)
 	GPIOB->CRH&=0XFF0FFFFF;
 	GPIOB->CRH|=0X00300000; 		//PB13		复用					SPI2-SCK(GT32-SCK)						Pin26
 	GPIOB->CRH&=0XF0FFFFFF;														
-	GPIOB->CRH|=0X03000000;			//PB14		复用					AIN1									Pin27
+	GPIOB->CRH|=0X0B000000;			//PB14		复用					AIN1									Pin27
 	GPIOB->CRH&=0X0FFFFFFF;	
 	GPIOB->CRH|=0X30000000;			//PB15		复用					AIN2									Pin28
 

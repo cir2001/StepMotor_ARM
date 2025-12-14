@@ -11,12 +11,17 @@ u8  USART1_RX_BUF[128];     //接收缓冲,最大128个字节.
 u8  USART1_TX_BUF[128];     //发送缓冲,最大128个字节.
 u8  USART2_RX_BUF[128];     //接收缓冲,最大128个字节.
 u8  USART2_TX_BUF[128];     //发送缓冲,最大128个字节.
-u8  u8TxD1Busy,u8ErrCode,TxD1Num,TxD2Num,TxD1pt,TxD2pt,RxD1pt,RxD2pt,RxD1Buf,RxD2Buf;
-u8  u8RxD2Com;
+u8  u8TxD1Busy,TxD1Num,TxD1pt,RxD1pt,RxD1Buf;
+u8  u8TxD2Busy,TxD2Num,TxD2pt,RxD2pt,RxD2Buf;
+u8  u8ErrCode;
 
 u8  u8test1,u8test2,u8test3,u8test4,u8test5,u8test6,u8test7,u8test8;
 u8  rData1Temp,rData2Temp;
-u8 key_press;
+u8 	key_press;
+u8 	u8Uart2_flag;
+u8 u8Uart2_flag_test;
+
+int recv_uart2_val,temp_val;;
 //=========================================================
 // USART1 中断服务程序		  与上位机通讯
 //=========================================================
@@ -28,8 +33,6 @@ u8 key_press;
 //bit6，接收到0x0d
 //bit5~0，接收到的有效字节数目
 //===============================
-u8 u8TxD2Busy;
-u32 u32Com;
 //===============================
 void USART1_IRQHandler(void)      // 
 {
@@ -95,9 +98,6 @@ void USART1_IRQHandler(void)      //
 //bit6，接收到0x0d
 //bit5~0，接收到的有效字节数目
 //===============================
-u8 u8TxD2Busy;
-
-u32 u32Com;
 //===============================
 void USART2_IRQHandler(void)      // 
 {
@@ -133,13 +133,29 @@ void USART2_IRQHandler(void)      //
 				switch(USART2_RX_BUF[1])	{
 //==== D ===== 
 					case 'D':		// 
-							u8test1=USART2_RX_BUF[2]-0x30;
-							key_press = 1;											
+							u8test1=USART2_RX_BUF[2]-0x30;										
 							break;
 //==== S ==== 
-					case 'S':		// 
-							u8test1=USART2_RX_BUF[2]-0x30;//#S1,0,1,6000,6000,6000.
+					case 'S':		// #S-10000 or #S-10000.
+							u8Uart2_flag = 1;
+							u8Uart2_flag_test= 1;
+							temp_val =  (USART2_RX_BUF[3] - '0') * 10000 +
+										(USART2_RX_BUF[4] - '0') * 1000 +
+										(USART2_RX_BUF[5] - '0') * 100 +
+										(USART2_RX_BUF[6] - '0') * 10 +
+										(USART2_RX_BUF[7] - '0');
+							if(USART2_RX_BUF[2] == '-')
+							{
+								recv_uart2_val = -temp_val;
+							}
+							else
+							{
+								recv_uart2_val = temp_val;
+							}	
 
+							// 限制最大速度 (防止瞎发指令导致堵转)
+                			if(recv_uart2_val > 25000) recv_uart2_val = 25000;
+               				if(recv_uart2_val < -25000) recv_uart2_val = -25000;
 							break;
 //==== H ===== 
 					case 'H':		// 

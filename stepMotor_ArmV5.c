@@ -64,19 +64,39 @@
 #include "SysTick.h"
 #include "stdint.h"			//定义bool变量需要加入这行
 #include "stdbool.h"		//定义bool变量需要加入这行
-
+#include <stdlib.h>
 #include "math.h"
 
 #include "spi.h"
 #include "oled.h"
 #include "can.h"
 #include "AS5600.h"
+#include "stepMotor.h"
 //-------------------
 #define BufferSize 16
 //--------------------
 //设置FLASH 保存地址(必须为偶数，且其值要大于本代码所占用FLASH的大小+0X08000000)
 #define FLASH_SAVE_ADDR  0X08010000 
 #define BufferSize 16
+
+// ===================================================================
+//  全局变量
+// ===================================================================
+// 闭环控制相关
+extern int64_t Theory_Pos_Scaled; // 理论位置 (放大版)
+extern int64_t Actual_Pos_Scaled; // 实际位置 (放大版)
+extern int32_t Position_Error; // 误差 (实际编码器单位)
+extern u16 Last_AS5600_Raw;           // 上次编码器读数
+
+// 速度控制相关
+extern int32_t Target_Speed_Hz;   // 用户设定的目标速度
+extern int32_t Real_Output_Hz;   // 实际发给电机的速度 (包含补偿)
+
+// 调试/显示相关
+volatile float Display_RPM = 0.0f;
+volatile float Display_Angle = 0.0f;
+
+volatile int32_t User_Cmd_Speed = 0;   // 串口发来的最终目标
 //--------------------------
 char hex2char(u8 value);
 //---------------------
@@ -92,8 +112,10 @@ extern u8 key_press;
 
 extern u8 CAN_RX_Flag;
 extern u8 CAN_RX_BUF[8];
+extern u8 u8Uart2_flag;
 
 extern u16 CAN_RX_ID;
+extern int recv_uart2_val;
 //=====================================================
 short Gyro[3],Acc[3];
 
@@ -106,11 +128,16 @@ u8 key;
 u8 canRXbuf[8];
 u8 u8can,u8can1,u8can2;
 unsigned char h2c_id[3],h2c[8][2];
+
+u32 oled_tick;
 //==========================================================
 int main(void)
 {
-	float angle_deg;
-    u16 raw_angle;
+	int i;
+	//int32_t target_speed = 0;  // 目标速度 (来自串口)
+    int32_t current_speed = 0; // 当前实际速度
+	int show_rpm;
+	int show_ang;
 //****** 初始化 *******//
 	Stm32_Clock_Init(9);     		//系统时钟设置
 	
@@ -122,10 +149,14 @@ int main(void)
 	OLED_Init();
 	delay_ms(200);
 	
-	uart_init2(36,57600);	 		//串口2初始化为57600 APB1/2预分频（与上位机通讯）
+	uart_init2(36,115200);	 		//串口2初始化为57600 APB1/2预分频（与上位机通讯）
 	delay_ms(200);
-	
-	Timer2_Init(99,71); 			//1ms
+
+	//Timer2_Init(999,71);				//定时器2初始化 1ms
+	Timer2_Init(4999,71);				//定时器2初始化 5ms
+	delay_ms(200);
+
+	StepMotor_Init();				//步进电机初始化
 	delay_ms(200);
 	
 	CAN_Mode_Init();				//CAN初始化,波特率500Kbps    
@@ -135,71 +166,122 @@ int main(void)
 	delay_ms(200);
 //******** 变量初始化 **********//
 	u8Led0_Counter = 0;
-	
 	key_press = 0;
-	
-	//OLED_ShowNum(0, 0, 12345678, 8, 16);
-	//OLED_ShowString(1,16,"OLED TEST");
-	//OLED_Clear();
-	//OLED_ShowString(0,0," LX: ");
-	//OLED_ShowString(0,16," LY: ");
-	//OLED_ShowString(0,32," RX: ");
-	//OLED_ShowString(0,48," RY: ");
-	OLED_ShowString(0, 0,  "LY-STM32");
-	OLED_ShowString(0, 24, "Count:");
-	
-	Motor_M0 = 1;  
-	Motor_M1 = 1;
-	Motor_M2 = 0;
-	//Motor_Sleep = 1;
-	Motor_Ena = 0;
-	Motor_Dir = 1;
 
+	// OLED 静态显示 (画表格、写固定的字)
+    // 这些字只写一次，循环里不要重复刷，提高效率
+    OLED_Clear();
+    /*OLED_ShowString(0, 0,  "MODE: Velocity");
+    OLED_ShowString(0, 24, "RPM :");
+    OLED_ShowString(0, 48, "Ang :");*/
 
+	OLED_ShowString(0, 0, "Mode: ClosedLoop");
+	OLED_ShowString(0, 16, "Target:");
+    OLED_ShowString(0, 32, "Err :");
+    OLED_ShowString(0, 48, "Spd :");
+
+    OLED_Refresh_Gram(); // 第一次刷显存
+	// 简单的加速启动示例 
+	/*for( i = 1000; i <= 25000; i += 100) 
+	{
+		StepMotor_SetSpeed(i);
+		delay_ms(5); // 给电机一点反应时间
+	}*/
+	// 加速完后，它就会一直保持 25000 转
+	// 读取一次初始角度，防止上电第一帧数据跳变
+    Last_AS5600_Raw = AS5600_GetRawAngle(); 
+
+    // 4. 设定一个初始速度进行测试
+    // 目标：2000Hz (约 0.6圈/秒)
+    //Target_Speed_Hz = 2000;
 //*********** 主循环程序 ****************//
 	while(1)
 	{	
-		u8Led0_Counter++;
+		// ============================
+        // 主循环：处理紧急任务
+        // ============================
+		// 1. 检查是否有新指令
+        if (u8Uart2_flag)
+        {
+			// 从串口2接收新指令
+            User_Cmd_Speed = recv_uart2_val;
+            // 清除标志位
+            u8Uart2_flag = 0;
+			//StepMotor_SetSpeed(User_Cmd_Speed);
+			Target_Speed_Hz = User_Cmd_Speed;
+        }
+		// ============================
+        // 主循环：处理非紧急任务
+        // ============================
+        // delay_ms(1) 是整个主循环的心跳
+        delay_ms(1); 
+        oled_tick++;
+        // 每 100ms 刷新一次屏幕 (1ms * 100 = 100ms)
+        if (oled_tick >= 1000) 
+        {
+            oled_tick = 0; // 清零计时器
 
-		if(u8Led0_Counter == 1000)
-		{
-			res++;
-			u8Led0_Counter = 0;
-			raw_angle = AS5600_GetRawAngle();
+            // --- A. 准备数据 ---
+            // 为了显示稳定，可以把浮点数转成整数，或者保留1位小数
+          	/*show_rpm = (int)Target_Speed_Hz;
+            show_ang = (int)Last_AS5600_Raw;
+
+			//show_rpm = (int)1500;
+            //show_ang = (int)355;
+
+            // --- B. 写入显存 (只更新变化的数字) ---
+            // 显示转速 (在 x=48, y=24 的位置)
+            // 这里的 " " 是为了覆盖掉上一帧可能残留的多余位数
+            // 比如 1000 变 9，不清除就会变成 9000
+            OLED_ShowString(48, 24, "      "); // 先清除数字区域
+            if(show_rpm < 0) {
+                 OLED_ShowString(48, 24, "-");
+                 OLED_ShowNum(56, 24, -show_rpm, 6, 16);
+            } else {
+					OLED_ShowString(48, 24, "+");
+                 OLED_ShowNum(56, 24, show_rpm, 6, 16);
+            }
+
+            // 显示角度 (在 x=48, y=48 的位置)
+            OLED_ShowString(48, 48, "      "); // 先清除
+            OLED_ShowNum(48, 48, show_ang, 5, 16);
+
+            // --- C. 发送至屏幕 (最耗时的一步) ---
+            OLED_Refresh_Gram(); */
+            
+
+			// 显示误差 (Position Error)
+			OLED_ShowString(48, 16, "      "); // 清除旧数字
+            if(Actual_Pos_Scaled < 0) {
+                OLED_ShowString(48, 16, "-");
+                OLED_ShowNum(56, 16, -Target_Speed_Hz, 6, 16);
+            } else {
+                OLED_ShowNum(48, 16, Target_Speed_Hz, 7, 16);
+            }
+
+            OLED_ShowString(48, 32, "      "); // 清除旧数字
+            if(Position_Error < 0) {
+                OLED_ShowString(48, 32, "-");
+                OLED_ShowNum(56, 32, -Position_Error, 6, 16);
+            } else {
+                OLED_ShowNum(48, 32, Position_Error, 7, 16);
+            }
+
+            // 显示实际输出频率 (Real Output Hz)
+            OLED_ShowString(48, 48, "      ");
+            if(Real_Output_Hz < 0) {
+                 OLED_ShowString(48, 48, "-");
+                 OLED_ShowNum(56, 48, -Real_Output_Hz, 6, 16);
+            } else {
+                 OLED_ShowNum(48, 48, Real_Output_Hz, 7, 16);
+            }
+            
+            OLED_Refresh_Gram();
+            // --- D. LED指示灯 (可选，证明系统没死机) ---
+            LMain = !LMain;
+        }
+
         
-			// 转换公式: 360度 / 4096步 = 0.08789
-			angle_deg = raw_angle * 0.087890625f;
-
-			// --- 准备 OLED 显存 (GRAM) ---
-			// 1. 清除显存 (清除上一帧的数字，防止重叠)
-			//OLED_Clear(); 
-			
-			// 2. 画静态文字
-			//OLED_ShowString(0, 0,  "LY-STM32");
-			//OLED_ShowString(0, 24, "Count:");
-			
-			// 3. 画动态变量
-			// 参数：x, y, 数字变量, 位数, 字体大小
-			OLED_ShowNum(56, 24, res, 8, 16); 
-			//OLED_ShowNum(32, 0, angle_deg, 4, 16);
-			
-			// --- 第三步：核心！将显存刷到屏幕 ---
-			OLED_Refresh_Gram(); 
-			
-			// --- 第四步：控制刷新率 ---
-			delay_ms(10); // 约 20fps，人眼看着舒服，且数字变化能看清
-
-			if(res == 100)
-			{
-				LED0 = !LED0;
-				LED1 = !LED1;
-				res = 0;
-				//USART2->DR = 0x32;
-				//res=CAN_Send_Msg(canbuf,8);				//发送8个字节 
-				//if(res)OLED_ShowString(0,0,"Failed");	//提示发送失败
-				//else OLED_ShowString(0,16,"OK");	//提示发送成功				
-			}
-		}
 		//key=CAN_Receive_Msg(canRXbuf);
 		if(key)//接收到有数据
 		{			

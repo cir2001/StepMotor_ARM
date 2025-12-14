@@ -13,9 +13,11 @@
 .\objects\stepmotor_armv5.o: .\HARDWARE\EXTI\exti.h
 .\objects\stepmotor_armv5.o: .\HARDWARE\SYSTICK\SysTick.h
 .\objects\stepmotor_armv5.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\stepmotor_armv5.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\stepmotor_armv5.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\stepmotor_armv5.o: .\HARDWARE\SPI\spi.h
 .\objects\stepmotor_armv5.o: .\HARDWARE\OLED\oled.h
 .\objects\stepmotor_armv5.o: .\HARDWARE\CAN\can.h
 .\objects\stepmotor_armv5.o: .\HARDWARE\AS5600\AS5600.h
 .\objects\stepmotor_armv5.o: .\HARDWARE\AS5600\myiic.h
+.\objects\stepmotor_armv5.o: .\HARDWARE\STEPMOTOR\stepMotor.h

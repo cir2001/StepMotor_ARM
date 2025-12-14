@@ -9,3 +9,7 @@
 .\objects\timer.o: .\SYSTEM\usart\usart.h
 .\objects\timer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\timer.o: .\SYSTEM\delay\delay.h
+.\objects\timer.o: .\HARDWARE\AS5600\AS5600.h
+.\objects\timer.o: .\HARDWARE\AS5600\myiic.h
+.\objects\timer.o: .\HARDWARE\STEPMOTOR\stepMotor.h
+.\objects\timer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
