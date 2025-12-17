@@ -22,6 +22,7 @@
 //	2025-12-14	添加步进电机控制功能 串口2发送转速指令
 //	2025-12-15	更改can收发函数
 //  2025-12-16  PlatformIO开发
+//  2025-12-17  F407 F103 can联机测试
 //*********** 引脚连接表 ***********************//
 //	0.96OLED(SD1306)SPI1		stm32f103
 //		GND						GND
@@ -178,7 +179,7 @@ int main(void)
     OLED_ShowString(0, 24, "RPM :");
     OLED_ShowString(0, 48, "Ang :");*/
 
-	OLED_ShowString_Data(0, 0,  "CAN_ID : ",CAN_ID_MOTOR_CMD);
+	OLED_ShowString_Data(0, 0,  "CAN_ID : ",CAN_ID_FILTER_START);
 	OLED_ShowString_Data(0, 16, "ID_FB  : ",CAN_ID_MOTOR_FB);
     OLED_ShowString(0, 32, "Tar_FB :");
     OLED_ShowString(0, 48, "Spd :");

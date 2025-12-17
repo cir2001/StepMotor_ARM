@@ -9,9 +9,8 @@
 #define CAN_RX0_INT_ENABLE	1		//0，不使能；1，使能		
 
 // 定义 CAN ID
-#define CAN_ID_MOTOR_CMD   0x301  // F407 发给 F103 的指令
-#define CAN_ID_MOTOR_FB    0x201  // F103 发回给 F407 的反馈
-#define CAN_ID_FILTER_START   0x300  // 32位mask模式下允许0x100-0x10F 的ID通过
+#define CAN_ID_MOTOR_FB    0x103  // F103 发回给 F407 的反馈
+#define CAN_ID_FILTER_START   0x400  // 32位mask模式下允许0x100-0x10F 的ID通过 F407 发给 F103 
 
 
 // 简单的协议结构 (8字节)
