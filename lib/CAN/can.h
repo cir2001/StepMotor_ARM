@@ -8,18 +8,10 @@
 #define CAN_ID_MOTOR_FB    0x103  // F103 发回给 F407 的反馈
 #define CAN_ID_FILTER_START   0x400  // 32位mask模式下允许0x100-0x10F 的ID通过 F407 发给 F103 
 
-
-// 简单的协议结构 (8字节)
-typedef struct {
-    int32_t TargetSpeed; // 4字节，目标速度 (放大后的整数)
-    uint8_t Command;     // 1字节，例如 1=Enable, 0=Disable
-    uint8_t Reserved[3]; // 保留位
-} Motor_Cmd_t;
-
-typedef struct {
+/*typedef struct {
     int32_t RealSpeed;   // 4字节，实际速度
     int32_t Position;    // 4字节，累计位置 (部分)
-} Motor_Feedback_t;
+} Motor_Feedback_t;*/
 
 // CAN 初始化函数
 u8 CAN_Mode_Init(void);         //CAN初始化
